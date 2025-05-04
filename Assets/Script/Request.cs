@@ -28,4 +28,28 @@ public class Request {
             callback(data);
         }
     }
+
+
+    static public IEnumerator PostRequestRoutine(string url, string postBody, Action<string> callback = null) {
+        // Using the static constructor
+        var request = UnityWebRequest.PostWwwForm(url, postBody);
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.SetRequestHeader("Accept", "application/json");
+
+        // Wait for the response and then get our data
+        yield return request.SendWebRequest();
+        string data = request.downloadHandler.text;
+        long status = request.responseCode;
+        //Debug.Log(status);
+
+        if (status / 100 != 2) {
+            // Error
+        }
+
+        // This isn't required, but I prefer to pass in a callback so that I can
+        // act on the response data outside of this function
+        else if (callback != null) {
+            callback(data);
+        }
+    }
 }

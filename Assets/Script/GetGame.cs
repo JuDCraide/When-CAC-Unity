@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -7,34 +8,60 @@ using UnityEngine.Networking;
 // And https://stackoverflow.com/questions/36239705/serialize-and-deserialize-json-and-json-array-in-unity
 
 [Serializable]
-public class InitGame {
+public class GameRes {
     public string uuid;
     public int latestEp;
     public string seed;
+
+    public bool checkValid() {
+        return !String.IsNullOrEmpty(uuid) && latestEp > 0 && !String.IsNullOrEmpty(seed);
+    }
 }
 
 public class GetGame : MonoBehaviour {
-    // Where to send our request
-    string seed;// = "eyJsYXRlc3RfZXAiOjE3MzYsInN0YXJ0X3RpbWVzdGFtcCI6MTc0NjMxODA0MTQzM30=";
-    string targetUrl = Request.DEFAULT_URL;
 
-    // Keep track of what we got back
-    string recentData = "";
+    public void Start() {
+        // Where to send our request
+        this.StartGame();
+    }
 
-    void Awake() {
-        if (!String.IsNullOrEmpty(this.seed)) {
-            targetUrl += $"?seed={this.seed}";
+    public void StartGame() {
+        if (GameManager.game == null) {
+            string targetUrl = Request.DEFAULT_URL;
+            if (!String.IsNullOrEmpty(GameManager.seed)) {
+                targetUrl += $"?seed={GameManager.seed}";
+            }
+            this.StartCoroutine(Request.GetRequestRoutine(targetUrl, this.StartGameResponseCallback));
         }
-        this.StartCoroutine(Request.GetRequestRoutine(this.targetUrl, this.ResponseCallback));
+        else {
+            GetRound();
+        }
     }
 
     // Callback to act on our response data
-    private void ResponseCallback(string data) {
+    private void StartGameResponseCallback(string data) {
         Debug.Log(data);
-        recentData = data;
-        InitGame g = JsonUtility.FromJson<InitGame>(data);
+        GameRes g = JsonUtility.FromJson<GameRes>(data);
+        if (!g.checkValid()) {
+            // Error
+        }
         Debug.Log(g.uuid);
-        Debug.Log(g.latestEp);
-        Debug.Log(g.seed);
+        GameManager.game = new Game(g);
+        GetRound();
+    }
+
+    public void GetRound() {
+        string targetUrl = Request.DEFAULT_URL;
+        targetUrl += $"/guess?uuid={GameManager.game.uuid}&round={GameManager.game.round}";
+
+        this.StartCoroutine(Request.GetRequestRoutine(targetUrl, GetRoundResponseCallback));
+    }
+
+    // Callback to act on our response data
+    private void GetRoundResponseCallback(string data) {
+        Debug.Log(data);
+        GuessVideoRes video = JsonUtility.FromJson<GuessVideoRes>(data);
+        GameManager.game.currentGuessVideo = new GuessVideo(video);
+        Debug.Log(GameManager.game.currentGuessVideo.formattedTitle);
     }
 }
