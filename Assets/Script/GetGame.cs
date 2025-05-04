@@ -61,5 +61,6 @@ public class GetGame : MonoBehaviour {
         GuessVideoRes video = JsonUtility.FromJson<GuessVideoRes>(data);
         GameManager.game.currentGuessVideo = new GuessVideo(video);
         Debug.Log(GameManager.game.currentGuessVideo.formattedTitle);
+        Debug.Log(GameManager.game.latestEp);
     }
 }

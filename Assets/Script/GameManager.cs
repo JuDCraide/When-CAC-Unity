@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class GameManager {
+public class GameManager:MonoBehaviour {
     //public static GameManager instance;
     public static string seed = null;// = "eyJsYXRlc3RfZXAiOjE3MzYsInN0YXJ0X3RpbWVzdGFtcCI6MTc0NjMxODA0MTQzM30=";
     public static Game game = null;
