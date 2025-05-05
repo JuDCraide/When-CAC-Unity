@@ -24,6 +24,7 @@ public class GetGame : MonoBehaviour {
     }
 
     public void StartGame() {
+        Debug.Log("StartGame");
         if (GameManager.game == null) {
             string targetUrl = Request.DEFAULT_URL;
             if (!String.IsNullOrEmpty(GameManager.seed)) {

@@ -29,7 +29,6 @@ public class Request {
         }
     }
 
-
     static public IEnumerator PostRequestRoutine(string url, string postBody, Action<string> callback = null) {
         // Using the static constructor
         var request = UnityWebRequest.PostWwwForm(url, postBody);
