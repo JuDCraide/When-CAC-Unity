@@ -27,10 +27,10 @@ public class RoundResult {
 }
 
 public class Result {
-    RoundResult[] rounds;
-    int epTotal = 0;
-    int dateTotal = 0;
-    int totalPoints = 0;
+    public Dictionary<int, RoundResult> rounds;
+    public int epTotal = 0;
+    public int dateTotal = 0;
+    public int totalPoints = 0;
 }
 
 public class GuessVideo {
@@ -51,13 +51,37 @@ public class GuessVideoRes {
     public string video_i;
 }
 
-//public class ResultResponse {
-//    responseVideo: VideoResponse
-//    points: {
-//        ep: number,
-//        date: number,
-//    }
-//}
+
+public class PointsRes {
+public int ep;
+public int date;
+}
+
+public class VideoResponse {
+    public string title;
+    public int ep;
+    public string video_id;
+    public string date;
+}
+
+public class ResultResponse {
+    public VideoResponse responseVideo;
+    public PointsRes points;
+}
+
+public class VideoResponseReq {
+    public string uuid;
+    public int round;
+    public int ep;
+    public string date;
+
+    public VideoResponseReq(string uuid, int round, int ep, string date) {
+        this.uuid = uuid;
+        this.round = round;
+        this.ep = ep;
+        this.date = date;
+    }
+}
 
 
 public class Game {
@@ -73,10 +97,35 @@ public class Game {
         this.latestEp = latestEp;
         this.seed = seed;
     }
-
     public Game(GameRes g) {
         this.uuid = g.uuid;
         this.latestEp = g.latestEp;
         this.seed = g.seed;
+    }
+
+    public void saveResult(ResultResponse r) {
+        result.totalPoints += r.points.ep + r.points.date;
+        result.epTotal += r.points.ep;
+        result.dateTotal += r.points.date;
+        result.rounds.Add(this.round,
+            new RoundResult {
+                date = new DateResult {
+                    guess = DateInput.value,
+                    res = r.responseVideo.date,
+                    diff = Math.Abs(DateTime.Parse(r.responseVideo.date).DayOfYear - DateTime.Parse(DateInput.value).DayOfYear),
+                    points = r.points.date
+                },
+                ep = new EpResult {
+                    guess = EpInput.currentValue,
+                    res = r.responseVideo.ep,
+                    diff = Math.Abs(r.responseVideo.ep - EpInput.currentValue),
+                    points = r.points.ep
+                },
+                roundTotal = r.points.ep + r.points.date,
+                title = r.responseVideo.title,
+                image = r.responseVideo.video_id,
+                id = r.responseVideo.video_id,
+            }
+        );
     }
 }

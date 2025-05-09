@@ -16,12 +16,12 @@ public class ShowRounds : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //if(round != currentRound.number) {
-        //    currentRound.setSelected(false);
-        //    currentRound = rounds[round - 1];
-        //    currentRound.setSelected(true);
-        //}
+        if (GameManager.game != null && GameManager.game.round != round) {
+            round = GameManager.game.round;
+            SetRound(round);
+        }
     }
+
     public void SetRound(int newRound) {
         if (newRound != currentRound.number) {
             this.round = newRound;

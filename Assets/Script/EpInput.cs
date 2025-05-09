@@ -7,7 +7,7 @@ public class EpInput : MonoBehaviour {
     public int latestEp = 1700;
     public Slider epSlider;
     public TMPro.TMP_InputField epText;
-    public int currentValue = 1;
+    static public int currentValue = 1;
 
     // Start is called before the first frame update
     void Start() {

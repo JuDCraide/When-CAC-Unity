@@ -31,7 +31,11 @@ public class Request {
 
     static public IEnumerator PostRequestRoutine(string url, string postBody, Action<string> callback = null) {
         // Using the static constructor
-        var request = UnityWebRequest.PostWwwForm(url, postBody);
+        Debug.Log(url);
+        Debug.Log(postBody);
+        byte[] bytes = System.Text.Encoding.UTF8.GetBytes(postBody);
+        //var request = UnityWebRequest.Put(url, bytes);
+        var request = new UnityWebRequest(url, "POST", new DownloadHandlerBuffer(), new UploadHandlerRaw(bytes));
         request.SetRequestHeader("Content-Type", "application/json");
         request.SetRequestHeader("Accept", "application/json");
 
@@ -39,9 +43,10 @@ public class Request {
         yield return request.SendWebRequest();
         string data = request.downloadHandler.text;
         long status = request.responseCode;
-        //Debug.Log(status);
+        Debug.Log(status);
 
         if (status / 100 != 2) {
+            Debug.Log(data);
             // Error
         }
 
@@ -49,6 +54,7 @@ public class Request {
         // act on the response data outside of this function
         else if (callback != null) {
             callback(data);
+
         }
     }
 }

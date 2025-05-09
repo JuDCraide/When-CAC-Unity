@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 // Based on https://discussions.unity.com/t/how-do-i-get-into-the-data-returned-from-a-unitywebrequest/218510/2
 // And https://stackoverflow.com/questions/36239705/serialize-and-deserialize-json-and-json-array-in-unity
@@ -19,22 +20,21 @@ public class GameRes {
 public class GetGame : MonoBehaviour {
 
     public void Start() {
-        // Where to send our request
-        this.StartGame();
-    }
-
-    public void StartGame() {
-        Debug.Log("StartGame");
         if (GameManager.game == null) {
-            string targetUrl = Request.DEFAULT_URL;
-            if (!String.IsNullOrEmpty(GameManager.seed)) {
-                targetUrl += $"?seed={GameManager.seed}";
-            }
-            this.StartCoroutine(Request.GetRequestRoutine(targetUrl, this.StartGameResponseCallback));
+            this.StartGame();
         }
         else {
             GetRound();
         }
+    }
+
+    public void StartGame() {
+        Debug.Log("StartGame");
+        string targetUrl = Request.DEFAULT_URL;
+        if (!String.IsNullOrEmpty(GameManager.seed)) {
+            targetUrl += $"?seed={GameManager.seed}";
+        }
+        this.StartCoroutine(Request.GetRequestRoutine(targetUrl, this.StartGameResponseCallback));
     }
 
     // Callback to act on our response data
@@ -50,6 +50,7 @@ public class GetGame : MonoBehaviour {
     }
 
     public void GetRound() {
+        Debug.Log("GetRound");
         string targetUrl = Request.DEFAULT_URL;
         targetUrl += $"/guess?uuid={GameManager.game.uuid}&round={GameManager.game.round}";
 
@@ -63,5 +64,14 @@ public class GetGame : MonoBehaviour {
         GameManager.game.currentGuessVideo = new GuessVideo(video);
         Debug.Log(GameManager.game.currentGuessVideo.formattedTitle);
         Debug.Log(GameManager.game.latestEp);
+    }
+
+    public void onAnswer() {
+        if(DateInput.value == "") {
+            // Error
+            Debug.Log("Please input date");
+            return;
+        }
+        SceneManager.LoadScene("GameRoundResult");
     }
 }
