@@ -25,15 +25,14 @@ public class PostAnswer : MonoBehaviour {
 
     // Callback to act on our response data
     private void PostGuessAnswerCallback(string data) {
-        Debug.Log(data);
-        var result = JsonUtility.FromJson<ResultResponse>(data);
-        Debug.Log(result.responseVideo.ep);
-        //GameManager.game.saveResult(result);
+        //Debug.Log(data);
+        ResultResponse result = JsonUtility.FromJson<ResultResponse>(data);
+        //Debug.Log(result.responseVideo.video_id);
+        GameManager.game.saveResult(result);
 
-        //RoundResult res;
-        //GameManager.game.result.rounds.TryGetValue(GameManager.game.round, out res);
-        //Debug.Log(res.ep.diff);
-        //Debug.Log(res.date.diff);
+        GameManager.game.result.rounds.TryGetValue(GameManager.game.round, out RoundResult res);
+        Debug.Log(res.ep.diff);
+        Debug.Log(res.date.diff);
     }
 
 

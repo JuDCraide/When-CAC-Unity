@@ -45,18 +45,20 @@ public class GuessVideo {
     }
 }
 
+[Serializable]
 public class GuessVideoRes {
     public string formatted_title;
     public string image_url;
     public string video_i;
 }
 
-
+[Serializable]
 public class PointsRes {
-public int ep;
-public int date;
+    public int ep;
+    public int date;
 }
 
+[Serializable]
 public class VideoResponse {
     public string title;
     public int ep;
@@ -64,6 +66,7 @@ public class VideoResponse {
     public string date;
 }
 
+[Serializable]
 public class ResultResponse {
     public VideoResponse responseVideo;
     public PointsRes points;
