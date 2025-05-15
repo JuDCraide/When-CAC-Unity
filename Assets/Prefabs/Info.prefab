@@ -2191,6 +2191,7 @@ GameObject:
   - component: {fileID: 2630905078690200655}
   - component: {fileID: 3445991553129709169}
   - component: {fileID: 7400412144672826714}
+  - component: {fileID: 5435235668671389851}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -2286,6 +2287,27 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5435235668671389851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4628902944212893699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21128d24f880d84da9452bf2ef748c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  epGuess: {fileID: 5359787946972537377}
+  epRes: {fileID: 2678215409946215311}
+  epDiff: {fileID: 1765637931675580984}
+  epPoints: {fileID: 750015690031217113}
+  dateGuess: {fileID: 7174092338434665567}
+  dateRes: {fileID: 654067763595232067}
+  dateDiff: {fileID: 7505363073789822968}
+  datePoints: {fileID: 8687611839635216707}
+  roundPoints: {fileID: 1561436010619131407}
 --- !u!1 &4740506888523836226
 GameObject:
   m_ObjectHideFlags: 0
