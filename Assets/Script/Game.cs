@@ -27,7 +27,7 @@ public class RoundResult {
 }
 
 public class Result {
-    public Dictionary<int, RoundResult> rounds;
+    public Dictionary<int, RoundResult> rounds = new Dictionary<int, RoundResult>();
     public int epTotal = 0;
     public int dateTotal = 0;
     public int totalPoints = 0;

@@ -1552,6 +1552,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3951943037226549734, guid: feb87c125f0579b4489a9fa9036b6dac, type: 3}
+      propertyPath: m_text
+      value: "Pr\xF3ximo Round"
+      objectReference: {fileID: 0}
     - target: {fileID: 4628902944212893699, guid: feb87c125f0579b4489a9fa9036b6dac, type: 3}
       propertyPath: m_Name
       value: Info

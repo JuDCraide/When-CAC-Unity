@@ -37,7 +37,13 @@ public class PostAnswer : MonoBehaviour {
 
 
     public void onNextRound() {
-        GameManager.game.round++;
-        SceneManager.LoadScene("GameRound");
+        if (GameManager.game.round >= 5) {
+            GameManager.game.round = 5;
+            SceneManager.LoadScene("FullGameResult");
+        }
+        else {
+            GameManager.game.round++;
+            SceneManager.LoadScene("GameRound");
+        }
     }
 }

@@ -20,7 +20,7 @@ public class ShowResults : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (GameManager.game != null) {
+        if (GameManager.game != null && GameManager.game.result.rounds.ContainsKey(GameManager.game.round)) {
             epGuess.text = GameManager.game.result.rounds[GameManager.game.round].ep.guess.ToString();
             epRes.text = GameManager.game.result.rounds[GameManager.game.round].ep.res.ToString();
             epDiff.text = GameManager.game.result.rounds[GameManager.game.round].ep.diff.ToString();
