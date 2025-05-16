@@ -29,7 +29,7 @@ public class ShowResults : MonoBehaviour {
             dateRes.text = GameManager.game.result.rounds[GameManager.game.round].date.res.ToString();
             dateDiff.text = GameManager.game.result.rounds[GameManager.game.round].date.diff.ToString();
             datePoints.text = GameManager.game.result.rounds[GameManager.game.round].date.points.ToString();
-            datePoints.text = GameManager.game.result.rounds[GameManager.game.round].roundTotal.ToString();
+            roundPoints.text = GameManager.game.result.rounds[GameManager.game.round].roundTotal.ToString();
         }
     }
 }
