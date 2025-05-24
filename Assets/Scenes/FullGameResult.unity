@@ -2453,6 +2453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: {fileID: 679030160}
+  typePoints: 2
 --- !u!114 &1446180573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2648,6 +2649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: {fileID: 454801510}
+  typePoints: 0
 --- !u!114 &1715762027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4202,6 +4204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: {fileID: 7826108173389248966}
+  typePoints: 1
 --- !u!114 &8239590069020340408
 MonoBehaviour:
   m_ObjectHideFlags: 0
