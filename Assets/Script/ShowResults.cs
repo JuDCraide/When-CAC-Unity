@@ -18,6 +18,21 @@ public class ShowResults : MonoBehaviour {
     public ShowRounds showRounds = null;
 
 
+    void Awake() {
+        epGuess.text = "";
+        epRes.text = "";
+        epDiff.text = "";
+        epPoints.text = "";
+        dateGuess.text = "";
+        dateRes.text = "";
+        dateDiff.text = "";
+        datePoints.text = "";
+        roundPoints.text = "";
+        title.text = "";
+        date.text = "";
+    }
+
+
     // Start is called before the first frame update
     void Start() {
 
