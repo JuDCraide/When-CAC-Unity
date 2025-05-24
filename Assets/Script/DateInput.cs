@@ -14,11 +14,16 @@ public class DateInput : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        //Debug.Log("DateInput: " + dateText.text);
+        //Debug.Log("Value: " + value);
     }
 
     public void UpdateDate() {
         //Debug.Log(dateText.text);
+        if(dateText.text.Contains("/")) {
+            return;
+        }
         value = dateText.text;
+        dateText.text = FomatDateUtil.stringDateToSlash(value);
     }
 }

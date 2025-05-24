@@ -49,12 +49,12 @@ public class ShowResults : MonoBehaviour {
             epRes.text = GameManager.game.result.rounds[round].ep.res.ToString();
             epDiff.text = GameManager.game.result.rounds[round].ep.diff.ToString();
             epPoints.text = GameManager.game.result.rounds[round].ep.points.ToString();
-            dateGuess.text = GameManager.game.result.rounds[round].date.guess.ToString();
-            dateRes.text = GameManager.game.result.rounds[round].date.res.ToString();
+            dateGuess.text = FomatDateUtil.stringDateToSlash(GameManager.game.result.rounds[round].date.guess.ToString());
+            dateRes.text = FomatDateUtil.stringDateToSlash(GameManager.game.result.rounds[round].date.res.ToString());
             dateDiff.text = GameManager.game.result.rounds[round].date.diff.ToString();
             datePoints.text = GameManager.game.result.rounds[round].date.points.ToString();
             roundPoints.text = GameManager.game.result.rounds[round].roundTotal.ToString();
-            date.text = GameManager.game.result.rounds[round].date.res.ToString();
+            date.text = FomatDateUtil.stringDateToSlash(GameManager.game.result.rounds[round].date.res.ToString());
             title.text = GameManager.game.result.rounds[round].title;
 
             //Debug.Log("ShowGuessVideo: " + GameManager.game?.currentGuessVideo.imageUrl);
