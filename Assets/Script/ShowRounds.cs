@@ -17,7 +17,6 @@ public class ShowRounds : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (!clicable && GameManager.game != null && GameManager.game.round != round) {
-            Debug.Log("Update: " + round + " " + GameManager.game.round);
             round = GameManager.game.round;
             SetRound(round);
         }
