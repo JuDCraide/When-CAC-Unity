@@ -25,13 +25,14 @@ public class ShowGuessVideo : MonoBehaviour {
 
             //Debug.Log("ShowGuessVideo: " + GameManager.game?.currentGuessVideo.imageUrl);
             //var src = GameManager.game?.currentGuessVideo.imageUrl.Replace("data:image/webp;base64,", "");
+            var src = GameManager.game?.currentGuessVideo.imageUrl.Replace("data:image/jpg;base64,", "");
             //Debug.Log("ShowGuessVideo: " + src);
-            //byte[] b64_bytes = System.Convert.FromBase64String(src);
-            //var tex = new Texture2D(1, 1);
-            //tex.LoadImage(b64_bytes);
-            ////Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
-            //Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero);
-            //image.sprite = sprite;
+            byte[] b64_bytes = System.Convert.FromBase64String(src);
+            var tex = new Texture2D(1, 1);
+            tex.LoadImage(b64_bytes);
+            //Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
+            Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero);
+            image.sprite = sprite;
         }
     }
 }

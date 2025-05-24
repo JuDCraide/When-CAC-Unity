@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShowResults : MonoBehaviour {
     public TMPro.TMP_Text epGuess;
@@ -15,6 +13,7 @@ public class ShowResults : MonoBehaviour {
     public TMPro.TMP_Text roundPoints;
     public TMPro.TMP_Text title;
     public TMPro.TMP_Text date;
+    public Image image;
     public ShowRounds showRounds = null;
 
 
@@ -57,6 +56,17 @@ public class ShowResults : MonoBehaviour {
             roundPoints.text = GameManager.game.result.rounds[round].roundTotal.ToString();
             date.text = GameManager.game.result.rounds[round].date.res.ToString();
             title.text = GameManager.game.result.rounds[round].title;
+
+            //Debug.Log("ShowGuessVideo: " + GameManager.game?.currentGuessVideo.imageUrl);
+            //var src = GameManager.game?.currentGuessVideo.imageUrl.Replace("data:image/webp;base64,", "");
+            var src = GameManager.game.result.rounds[round].image.Replace("data:image/jpg;base64,", "");
+            //Debug.Log("ShowGuessVideo: " + src);
+            byte[] b64_bytes = System.Convert.FromBase64String(src);
+            var tex = new Texture2D(1, 1);
+            tex.LoadImage(b64_bytes);
+            //Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
+            Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero);
+            image.sprite = sprite;
         }
     }
 }

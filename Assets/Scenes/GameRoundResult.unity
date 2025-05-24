@@ -891,6 +891,8 @@ MonoBehaviour:
   roundPoints: {fileID: 4271691685391823205}
   title: {fileID: 18338126}
   date: {fileID: 1451083845}
+  image: {fileID: 1693313459}
+  showRounds: {fileID: 0}
 --- !u!224 &882402022 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6085926226514222696, guid: a2859acd91957c04d8b8c6a7f6595936, type: 3}

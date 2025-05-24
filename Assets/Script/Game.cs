@@ -126,7 +126,7 @@ public class Game {
                 },
                 roundTotal = r.points.ep + r.points.date,
                 title = r.responseVideo.title,
-                image = r.responseVideo.video_id,
+                image = currentGuessVideo.imageUrl,
                 id = r.responseVideo.video_id,
             }
         );
