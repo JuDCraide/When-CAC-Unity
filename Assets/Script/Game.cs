@@ -110,12 +110,13 @@ public class Game {
         result.totalPoints += r.points.ep + r.points.date;
         result.epTotal += r.points.ep;
         result.dateTotal += r.points.date;
+
         result.rounds.Add(this.round,
             new RoundResult {
                 date = new DateResult {
                     guess = DateInput.value,
                     res = r.responseVideo.date,
-                    diff = Math.Abs(DateTime.Parse(r.responseVideo.date).DayOfYear - DateTime.Parse(DateInput.value).DayOfYear),
+                    diff = Math.Abs((DateTime.Parse(r.responseVideo.date) - DateTime.Parse(DateInput.value)).Days),
                     points = r.points.date
                 },
                 ep = new EpResult {
