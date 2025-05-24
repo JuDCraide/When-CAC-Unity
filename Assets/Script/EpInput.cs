@@ -18,7 +18,7 @@ public class EpInput : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (GameManager.game != null && latestEp != GameManager.game.latestEp) {
-            Debug.Log(latestEp);
+            //Debug.Log(latestEp);
             latestEp = GameManager.game.latestEp;
             epSlider.maxValue = latestEp;
         }

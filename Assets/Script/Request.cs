@@ -31,8 +31,8 @@ public class Request {
 
     static public IEnumerator PostRequestRoutine(string url, string postBody, Action<string> callback = null) {
         // Using the static constructor
-        Debug.Log(url);
-        Debug.Log(postBody);
+        //Debug.Log(url);
+        //Debug.Log(postBody);
         byte[] bytes = System.Text.Encoding.UTF8.GetBytes(postBody);
         //var request = UnityWebRequest.Put(url, bytes);
         var request = new UnityWebRequest(url, "POST", new DownloadHandlerBuffer(), new UploadHandlerRaw(bytes));
@@ -43,7 +43,7 @@ public class Request {
         yield return request.SendWebRequest();
         string data = request.downloadHandler.text;
         long status = request.responseCode;
-        Debug.Log(status);
+        //Debug.Log(status);
 
         if (status / 100 != 2) {
             Debug.Log(data);

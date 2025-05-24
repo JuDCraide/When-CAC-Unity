@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class ShowGuessVideo : MonoBehaviour {
     public TMPro.TMP_Text title;
     public Image image;
-
     string src = "R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==";
 
     void Awake() {
@@ -13,13 +12,15 @@ public class ShowGuessVideo : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-
+        title.text = "";
     }
 
     // Update is called once per frame
     void Update() {
-        //Debug.Log(GameManager.game?.currentGuessVideo);
-        if (GameManager.game?.currentGuessVideo != null && string.IsNullOrEmpty(title.text)) {
+        if (GameManager.game?.currentGuessVideo != null &&
+            (string.IsNullOrEmpty(title.text) ||
+            GameManager.game?.currentGuessVideo.formattedTitle != title.text)
+         ) {
             title.text = GameManager.game?.currentGuessVideo.formattedTitle;
 
             //Debug.Log("ShowGuessVideo: " + GameManager.game?.currentGuessVideo.imageUrl);

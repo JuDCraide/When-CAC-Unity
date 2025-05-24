@@ -18,7 +18,7 @@ public class DateInput : MonoBehaviour {
     }
 
     public void UpdateDate() {
-        Debug.Log(dateText.text);
+        //Debug.Log(dateText.text);
         value = dateText.text;
     }
 }

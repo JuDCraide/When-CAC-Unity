@@ -12,7 +12,7 @@ public class ShowPoints : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (GameManager.game != null) {
-            Debug.Log("ShowPoints: " + GameManager.game.result.totalPoints);
+            //Debug.Log("ShowPoints: " + GameManager.game.result.totalPoints);
             points.text = GameManager.game.result.totalPoints.ToString();
         }
     }

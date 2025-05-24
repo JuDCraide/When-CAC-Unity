@@ -17,7 +17,7 @@ public class PostAnswer : MonoBehaviour {
     }
 
     public void PostGuessAnswer() {
-        Debug.Log("PostGuessAnswer");
+        //Debug.Log("PostGuessAnswer");
         string targetUrl = Request.DEFAULT_URL + "/response";
         string postBody = JsonUtility.ToJson(new VideoResponseReq(GameManager.game.uuid, GameManager.game.round, EpInput.currentValue, DateInput.value));
         this.StartCoroutine(Request.PostRequestRoutine(targetUrl, postBody, this.PostGuessAnswerCallback));
@@ -31,8 +31,11 @@ public class PostAnswer : MonoBehaviour {
         GameManager.game.saveResult(result);
 
         GameManager.game.result.rounds.TryGetValue(GameManager.game.round, out RoundResult res);
-        Debug.Log(res.ep.diff);
-        Debug.Log(res.date.diff);
+        //Debug.Log(res.title);
+        //Debug.Log(res.ep.diff);
+        //Debug.Log(res.date.diff);
+        EpInput.currentValue = 1;
+        DateInput.value = "";
     }
 
 

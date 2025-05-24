@@ -29,7 +29,7 @@ public class GetGame : MonoBehaviour {
     }
 
     public void StartGame() {
-        Debug.Log("StartGame");
+        //Debug.Log("StartGame");
         string targetUrl = Request.DEFAULT_URL;
         if (!String.IsNullOrEmpty(GameManager.seed)) {
             targetUrl += $"?seed={GameManager.seed}";
@@ -39,18 +39,18 @@ public class GetGame : MonoBehaviour {
 
     // Callback to act on our response data
     private void StartGameResponseCallback(string data) {
-        Debug.Log(data);
+        //Debug.Log(data);
         GameRes g = JsonUtility.FromJson<GameRes>(data);
         if (!g.checkValid()) {
             // Error
         }
-        Debug.Log(g.uuid);
+        //Debug.Log(g.uuid);
         GameManager.game = new Game(g);
         GetRound();
     }
 
     public void GetRound() {
-        Debug.Log("GetRound");
+        //Debug.Log("GetRound");
         string targetUrl = Request.DEFAULT_URL;
         targetUrl += $"/guess?uuid={GameManager.game.uuid}&round={GameManager.game.round}";
 
@@ -59,11 +59,11 @@ public class GetGame : MonoBehaviour {
 
     // Callback to act on our response data
     private void GetRoundResponseCallback(string data) {
-        Debug.Log(data);
+        //Debug.Log(data);
         GuessVideoRes video = JsonUtility.FromJson<GuessVideoRes>(data);
         GameManager.game.currentGuessVideo = new GuessVideo(video);
-        Debug.Log(GameManager.game.currentGuessVideo.formattedTitle);
-        Debug.Log(GameManager.game.latestEp);
+        //Debug.Log(GameManager.game.currentGuessVideo.formattedTitle);
+        //Debug.Log(GameManager.game.latestEp);
     }
 
     public void onAnswer() {
