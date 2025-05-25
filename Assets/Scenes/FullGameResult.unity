@@ -1612,7 +1612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1ab60d298093a459d3f69aef98c7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showRounds: {fileID: 214733023}
+  showRounds: {fileID: 0}
+  fixedId: 
 --- !u!1 &679030158
 GameObject:
   m_ObjectHideFlags: 0

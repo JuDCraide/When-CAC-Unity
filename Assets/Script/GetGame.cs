@@ -67,9 +67,13 @@ public class GetGame : MonoBehaviour {
     }
 
     public void onAnswer() {
-        if(DateInput.value == "") {
+        if (DateInput.value == "") {
             // Error
             Debug.Log("Please input date");
+            return;
+        }
+        if (GameManager.game == null) {
+            Debug.Log("Please wait for game to load");
             return;
         }
         SceneManager.LoadScene("GameRoundResult");
