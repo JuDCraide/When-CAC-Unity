@@ -16,7 +16,6 @@ public class ShowResults : MonoBehaviour {
     public Image image;
     public ShowRounds showRounds = null;
 
-
     void Awake() {
         epGuess.text = "";
         epRes.text = "";
