@@ -6,9 +6,16 @@ public class Menus : MonoBehaviour {
         SceneManager.LoadScene("GameRound");
     }
 
-    public void GoToMenu() {
+    public void GoToSeed() {
+        SceneManager.LoadScene("Seed");
+    }
+
+
+    public void GoToMenu()
+    {
         SceneManager.LoadScene("Menu");
         GameManager.game = null;
+        GameManager.seed = null;
     }
 
     public void GoToHowToPlay() {

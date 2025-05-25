@@ -13,6 +13,7 @@ public class ShowResults : MonoBehaviour {
     public TMPro.TMP_Text roundPoints;
     public TMPro.TMP_Text title;
     public TMPro.TMP_Text date;
+    public TMPro.TMP_InputField seed = null;
     public Image image;
     public ShowRounds showRounds = null;
 
@@ -66,6 +67,10 @@ public class ShowResults : MonoBehaviour {
             //Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
             Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero);
             image.sprite = sprite;
+
+            if(seed != null) {
+                seed.text = GameManager.game.seed.ToString();
+            }
         }
     }
 }
