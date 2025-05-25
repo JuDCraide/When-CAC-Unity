@@ -20,6 +20,10 @@ public class ShowRounds : MonoBehaviour {
             round = GameManager.game.round;
             SetRound(round);
         }
+        if (round==1)
+        {
+            SetRound(round);
+        }
     }
 
     public void SetRound(int newRound) {
