@@ -13,5 +13,11 @@ EditorBuildSettings:
     guid: c3c787d060f34df47a9137b702b0e32a
   - enabled: 1
     path: Assets/Scenes/FullGameResult.unity
+    guid: 4f6fca699d6810446a77d0a04287ee4b
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
     guid: 0d4c03db71aa02c40a2aff20df9d92c0
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 9749ed2e3ec15e0489c6ad70cc0c4625
   m_configObjects: {}
