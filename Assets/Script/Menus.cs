@@ -16,6 +16,7 @@ public class Menus : MonoBehaviour {
         SceneManager.LoadScene("Menu");
         GameManager.game = null;
         GameManager.seed = null;
+        GameManager.error = null;
     }
 
     public void GoToHowToPlay() {

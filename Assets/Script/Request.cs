@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class Request {
     public const string DEFAULT_URL = "https://when-cac.vercel.app/api/game";
@@ -21,8 +22,11 @@ public class Request {
         long status = request.responseCode;
         //Debug.Log(status);
 
-        if(status / 100 != 2) {
-            // Error
+        if (status / 100 != 2) {
+            Debug.Log("Status: {status} - Error: {data}");
+            var error = JsonUtility.FromJson<ErrorResponse>(data);
+            GameManager.error = $"Erro: {status} - {error.message}";
+            SceneManager.LoadScene("Error");
         }
 
         // This isn't required, but I prefer to pass in a callback so that I can
@@ -50,8 +54,10 @@ public class Request {
         //Debug.Log(status);
 
         if (status / 100 != 2) {
-            Debug.Log(data);
-            // Error
+            Debug.Log("Status: {status} - Error: {data}");
+            var error = JsonUtility.FromJson<ErrorResponse>(data);
+            GameManager.error = $"Erro: {status} - {error.message}";
+            SceneManager.LoadScene("Error");
         }
 
         // This isn't required, but I prefer to pass in a callback so that I can

@@ -86,6 +86,9 @@ public class VideoResponseReq {
     }
 }
 
+public class ErrorResponse {
+    public string message;
+}
 
 public class Game {
     public string uuid;
