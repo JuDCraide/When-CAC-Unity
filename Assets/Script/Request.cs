@@ -13,6 +13,7 @@ public class Request {
     static public IEnumerator GetRequestRoutine(string url, Action<string> callback = null) {
         // Using the static constructor
         var request = UnityWebRequest.Get(url);
+        request.SetRequestHeader("Access-Control-Allow-Origin", "*");
 
         // Wait for the response and then get our data
         yield return request.SendWebRequest();
@@ -40,6 +41,7 @@ public class Request {
         var request = new UnityWebRequest(url, "POST", new DownloadHandlerBuffer(), new UploadHandlerRaw(bytes));
         request.SetRequestHeader("Content-Type", "application/json");
         request.SetRequestHeader("Accept", "application/json");
+        request.SetRequestHeader("Access-Control-Allow-Origin", "*");
 
         // Wait for the response and then get our data
         yield return request.SendWebRequest();
