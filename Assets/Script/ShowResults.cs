@@ -17,7 +17,9 @@ public class ShowResults : MonoBehaviour {
     public Image image;
     public ShowRounds showRounds = null;
 
-    void Awake() {
+
+    // Start is called before the first frame update
+    void Start() {
         epGuess.text = "";
         epRes.text = "";
         epDiff.text = "";
@@ -29,12 +31,6 @@ public class ShowResults : MonoBehaviour {
         roundPoints.text = "";
         title.text = "";
         date.text = "";
-    }
-
-
-    // Start is called before the first frame update
-    void Start() {
-
     }
 
     // Update is called once per frame
