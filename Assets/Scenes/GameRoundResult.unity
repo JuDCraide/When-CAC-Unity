@@ -711,6 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showRounds: {fileID: 0}
+  fixedId: 
 --- !u!1 &680870820
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,7 +840,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
@@ -917,6 +918,7 @@ MonoBehaviour:
   roundPoints: {fileID: 4271691685391823205}
   title: {fileID: 18338126}
   date: {fileID: 1451083845}
+  seed: {fileID: 0}
   image: {fileID: 1693313459}
   showRounds: {fileID: 0}
 --- !u!224 &882402022 stripped
