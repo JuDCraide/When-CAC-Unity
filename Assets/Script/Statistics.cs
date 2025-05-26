@@ -11,7 +11,7 @@ enum Plataform {
 }
 
 public class Statistics : MonoBehaviour {
-    Plataform plataform = Plataform.WEB;
+    Plataform plataform = Plataform.ANDROID;
 
     public void Start() {
         if (GameManager.justStarted) {
