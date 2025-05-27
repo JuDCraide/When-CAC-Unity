@@ -43,6 +43,7 @@ public class GetGame : MonoBehaviour {
         GameRes g = JsonUtility.FromJson<GameRes>(data);
         if (!g.checkValid()) {
             // Error
+            SoundManager.PlaySound(SoundType.ERROR);
         }
         //Debug.Log(g.uuid);
         GameManager.game = new Game(g);
@@ -69,13 +70,17 @@ public class GetGame : MonoBehaviour {
     public void onAnswer() {
         if (DateInput.value == "") {
             // Error
+            SoundManager.PlaySound(SoundType.ERROR);
             Debug.Log("Please input date");
             return;
         }
         if (GameManager.game == null) {
+            SoundManager.PlaySound(SoundType.ERROR);
             Debug.Log("Please wait for game to load");
             return;
         }
+
+        SoundManager.PlaySound(SoundType.GUESS);
         SceneManager.LoadScene("GameRoundResult");
     }
 }

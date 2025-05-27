@@ -20,6 +20,7 @@ namespace UI.Dates
             if (!Button.interactable) return;
 
             DatePicker.DayButtonClicked(Date);
+            SoundManager.PlaySound(SoundType.INPUT);
         }
 
         public void MouseOver()

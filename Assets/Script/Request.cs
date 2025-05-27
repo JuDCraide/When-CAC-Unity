@@ -22,6 +22,7 @@ public class Request {
         //Debug.Log(status);
 
         if(status / 100 != 2) {
+            SoundManager.PlaySound(SoundType.ERROR);
             // Error
         }
 
@@ -50,6 +51,7 @@ public class Request {
         //Debug.Log(status);
 
         if (status / 100 != 2) {
+            SoundManager.PlaySound(SoundType.ERROR);
             Debug.Log(data);
             // Error
         }

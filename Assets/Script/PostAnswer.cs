@@ -40,6 +40,7 @@ public class PostAnswer : MonoBehaviour {
 
 
     public void onNextRound() {
+        SoundManager.PlaySound(SoundType.BUTTON);
         if (GameManager.game.round >= 5) {
             GameManager.game.round = 5;
             SceneManager.LoadScene("FullGameResult");

@@ -11,6 +11,7 @@ public class HowToPlay : MonoBehaviour {
 
     public void onGuessClicked() {
         if (DateInput.value != null) {
+            SoundManager.PlaySound(SoundType.GUESS);
             revealed = !revealed;
             if (revealed) {
                 title.text = "ESTRAGARAM O CHURRASCO - Ep.1074";
