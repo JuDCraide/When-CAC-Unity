@@ -44,6 +44,7 @@ public class SoundManager : MonoBehaviour {
             musicSource.outputAudioMixerGroup = music.mixer;
             musicSource.clip = music.music;
             musicSource.volume = music.volume;
+            musicSource.loop = true;
             musicSource.Play();
         }
     }
@@ -76,10 +77,6 @@ public class SoundManager : MonoBehaviour {
     private IEnumerator WaitToPlaySlider() {
         yield return new WaitForSeconds(10f);
         recentPlaySlicer = false;
-    }
-
-    public void PlayInput() {
-        SoundManager.PlaySound(SoundType.INPUT);
     }
 
 #if UNITY_EDITOR

@@ -65,4 +65,7 @@ public class EpInput : MonoBehaviour {
             UpdateValue(value);
         }
     }
+    public void PlayInput() {
+        SoundManager.PlaySound(SoundType.INPUT);
+    }
 }
