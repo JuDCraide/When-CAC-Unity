@@ -23,6 +23,7 @@ public class Request {
         //Debug.Log(status);
 
         if (status / 100 != 2) {
+            SoundManager.PlaySound(SoundType.ERROR);
             Debug.Log("Status: {status} - Error: {data}");
             var error = JsonUtility.FromJson<ErrorResponse>(data);
             GameManager.error = $"Erro: {status} - {error.message}";
@@ -54,6 +55,7 @@ public class Request {
         //Debug.Log(status);
 
         if (status / 100 != 2) {
+            SoundManager.PlaySound(SoundType.ERROR);
             Debug.Log("Status: {status} - Error: {data}");
             var error = JsonUtility.FromJson<ErrorResponse>(data);
             GameManager.error = $"Erro: {status} - {error.message}";

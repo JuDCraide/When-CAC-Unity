@@ -35,6 +35,7 @@ public class ShowRounds : MonoBehaviour {
     public void SetRoundByClick(ShowRound showRound) {
         //Debug.Log("SetRound: " + showRound.number);
         if (clicable && showRound.number != round) {
+            SoundManager.PlaySound(SoundType.BUTTON);
             this.round = showRound.number;
             currentRound.setSelected(false);
             currentRound = rounds[round - 1];
