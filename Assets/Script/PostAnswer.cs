@@ -40,6 +40,11 @@ public class PostAnswer : MonoBehaviour {
 
 
     public void onNextRound() {
+        if(GameManager.game == null || GameManager.game.result.rounds.ContainsKey(GameManager.game.round)) {             // Error
+            SoundManager.PlaySound(SoundType.ERROR);
+            Debug.Log("Please wait for the current round answer to load first");
+            return;
+        }
         SoundManager.PlaySound(SoundType.BUTTON);
         if (GameManager.game.round >= 5) {
             GameManager.game.round = 5;
