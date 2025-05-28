@@ -271,24 +271,28 @@ namespace UI.Dates
         {
             VisibleDate = VisibleDate.Date.AddMonths(-1);
             MonthChangedUpdateDisplay();
+            SoundManager.PlaySound(SoundType.INPUT);
         }
 
         public void ShowNextMonth()
         {
             VisibleDate = VisibleDate.Date.AddMonths(1);
             MonthChangedUpdateDisplay();
+            SoundManager.PlaySound(SoundType.INPUT);
         }
 
         public void ShowPreviousYear()
         {
             VisibleDate = VisibleDate.Date.AddYears(-1);
             MonthChangedUpdateDisplay();
+            SoundManager.PlaySound(SoundType.INPUT);
         }
 
         public void ShowNextYear()
         {
             VisibleDate = VisibleDate.Date.AddYears(1);
             MonthChangedUpdateDisplay();
+            SoundManager.PlaySound(SoundType.INPUT);
         }
 
         void MonthChangedUpdateDisplay()
@@ -802,7 +806,9 @@ namespace UI.Dates
             else
             {
                 Show();
+
             }
+            SoundManager.PlaySound(SoundType.INPUT);
         }
 
         public void Show(bool setPositionIfNecessary = true)

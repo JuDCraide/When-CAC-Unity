@@ -14,7 +14,7 @@ public class Request {
     static public IEnumerator GetRequestRoutine(string url, Action<string> callback = null) {
         // Using the static constructor
         var request = UnityWebRequest.Get(url);
-        request.SetRequestHeader("Access-Control-Allow-Origin", "*");
+        //request.SetRequestHeader("Access-Control-Allow-Origin", "*");
 
         // Wait for the response and then get our data
         yield return request.SendWebRequest();
@@ -23,6 +23,8 @@ public class Request {
         //Debug.Log(status);
 
         if (status / 100 != 2) {
+            
+            SoundManager.PlaySound(SoundType.ERROR);
             Debug.Log("Status: {status} - Error: {data}");
             var error = JsonUtility.FromJson<ErrorResponse>(data);
             GameManager.error = $"Erro: {status} - {error.message}";
@@ -45,7 +47,7 @@ public class Request {
         var request = new UnityWebRequest(url, "POST", new DownloadHandlerBuffer(), new UploadHandlerRaw(bytes));
         request.SetRequestHeader("Content-Type", "application/json");
         request.SetRequestHeader("Accept", "application/json");
-        request.SetRequestHeader("Access-Control-Allow-Origin", "*");
+        //request.SetRequestHeader("Access-Control-Allow-Origin", "*");
 
         // Wait for the response and then get our data
         yield return request.SendWebRequest();
@@ -54,6 +56,7 @@ public class Request {
         //Debug.Log(status);
 
         if (status / 100 != 2) {
+            SoundManager.PlaySound(SoundType.ERROR);
             Debug.Log("Status: {status} - Error: {data}");
             var error = JsonUtility.FromJson<ErrorResponse>(data);
             GameManager.error = $"Erro: {status} - {error.message}";

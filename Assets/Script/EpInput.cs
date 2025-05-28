@@ -38,24 +38,34 @@ public class EpInput : MonoBehaviour {
 
     public void UpdateValueSlider() {
         int value = (int)epSlider.value;
-        UpdateValue(value);
+        if(value != currentValue) {
+            SoundManager.PlaySound(SoundType.SLIDER);
+            UpdateValue(value);
+        }
     }
 
     public void IncreaseValue() {
+        SoundManager.PlaySound(SoundType.INPUT);
         UpdateValue(currentValue + 1);
     }
 
     public void DecreaseValue() {
+        SoundManager.PlaySound(SoundType.INPUT);
         UpdateValue(currentValue - 1);
     }
 
     public void UpdateValueTextInput() {
         int value = 1;
         string text = new string(epText.text.Where(char.IsNumber).ToArray());
+        if (text != currentValue.ToString()) {
+            SoundManager.PlaySound(SoundType.TYPED);
+        }
         if (text.Length > 0) {
             value = int.Parse(text);
+            UpdateValue(value);
         }
-
-        UpdateValue(value);
+    }
+    public void PlayInput() {
+        SoundManager.PlaySound(SoundType.INPUT);
     }
 }
