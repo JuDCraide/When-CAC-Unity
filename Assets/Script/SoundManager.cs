@@ -1,11 +1,11 @@
-// Based onhttps://www.youtube.com/watch?app=desktop&v=g5WT91Sn3hg
-// By author: Small Hedge Games
-
 using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
+// This script handles sound management in the game including music and sound effects.
+// Based onhttps://www.youtube.com/watch?app=desktop&v=g5WT91Sn3hg
+// By author: Small Hedge Games
 [Serializable]
 public enum SoundType {
     BUTTON,
@@ -59,11 +59,11 @@ public class SoundManager : MonoBehaviour {
             source.clip = randomClip;
             source.volume = volume * soundList.volume;
             if (sound != SoundType.SLIDER) {
-                Debug.Log(soundList.name);
+                //Debug.Log(soundList.name);
                 source.Play();
             }
             if (sound == SoundType.SLIDER && !recentPlaySlicer) {
-                Debug.Log("Playing slider sound");
+                //Debug.Log("Playing slider sound");
                 recentPlaySlicer = true;
                 instance.StartCoroutine(instance.WaitToPlaySlider());
             }

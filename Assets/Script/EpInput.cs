@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Windows;
 
+// This script handles the ep input set by the user
 public class EpInput : MonoBehaviour {
     public int latestEp = 1700;
     public Slider epSlider;
@@ -38,7 +39,7 @@ public class EpInput : MonoBehaviour {
 
     public void UpdateValueSlider() {
         int value = (int)epSlider.value;
-        if(value != currentValue) {
+        if (value != currentValue) {
             SoundManager.PlaySound(SoundType.SLIDER);
             UpdateValue(value);
         }

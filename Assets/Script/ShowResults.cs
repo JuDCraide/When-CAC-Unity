@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// This script is used to display the game results for a specific round
 public class ShowResults : MonoBehaviour {
     public TMPro.TMP_Text epGuess;
     public TMPro.TMP_Text epRes;
@@ -64,7 +65,7 @@ public class ShowResults : MonoBehaviour {
             Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero);
             image.sprite = sprite;
 
-            if(seed != null) {
+            if (seed != null) {
                 seed.text = GameManager.game.seed.ToString();
             }
         }

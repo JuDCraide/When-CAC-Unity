@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+// This script sends game access statistics to the server
 enum Plataform {
     ANDROID,
     WEB,
@@ -24,7 +24,7 @@ public class Statistics : MonoBehaviour {
     public void SendStatistics() {
         //Debug.Log("StartGame");
         string targetUrl = Request.DEFAULT_URL_STATISTICS;
-        switch(plataform) {
+        switch (plataform) {
             case Plataform.ANDROID:
                 targetUrl += "unity-android";
                 break;

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// This script handles the main navigation between scenes in the game
 public class Menus : MonoBehaviour {
     public void GoToPlay() {
         SoundManager.PlaySound(SoundType.BUTTON);
