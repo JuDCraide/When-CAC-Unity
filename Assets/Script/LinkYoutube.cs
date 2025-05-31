@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script is used to link to the game round YouTube video 
 public class LinkYoutube : MonoBehaviour {
     public ShowRounds showRounds = null;
     public string fixedId = null;

@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
+// This script handles web requests to the server
+// Based on https://discussions.unity.com/t/how-do-i-get-into-the-data-returned-from-a-unitywebrequest/218510/2
+// And https://stackoverflow.com/questions/36239705/serialize-and-deserialize-json-and-json-array-in-unity
 public class Request {
     public const string DEFAULT_URL = "https://when-cac.vercel.app/api/game";
     public const string DEFAULT_URL_TEST = "http://localhost:3000/api/game";
     public const string DEFAULT_URL_STATISTICS = "https://when-cac.vercel.app/api/statistics?origin=";
 
-    // Web requests are typially done asynchronously, so Unity's web request system
+    // Web requests are typically done asynchronously, so Unity's web request system
     // returns a yield instruction while it waits for the response.
     static public IEnumerator GetRequestRoutine(string url, Action<string> callback = null) {
         // Using the static constructor

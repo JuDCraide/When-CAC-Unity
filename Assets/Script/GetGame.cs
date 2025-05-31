@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
+// This script is used to make web requests to start a game and get the current round's info.
 // Based on https://discussions.unity.com/t/how-do-i-get-into-the-data-returned-from-a-unitywebrequest/218510/2
 // And https://stackoverflow.com/questions/36239705/serialize-and-deserialize-json-and-json-array-in-unity
-
 [Serializable]
 public class GameRes {
     public string uuid;
@@ -71,12 +71,12 @@ public class GetGame : MonoBehaviour {
         if (DateInput.value == "") {
             // Error
             SoundManager.PlaySound(SoundType.ERROR);
-            Debug.Log("Please input date");
+            //Debug.Log("Please input date");
             return;
         }
         if (GameManager.game == null) {
             SoundManager.PlaySound(SoundType.ERROR);
-            Debug.Log("Please wait for game to load");
+            //Debug.Log("Please wait for game to load");
             return;
         }
 

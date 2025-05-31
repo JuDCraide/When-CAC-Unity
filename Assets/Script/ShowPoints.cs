@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script is used to display the total points in the game
 public enum TotalPointsType {
     EP,
     DATE,

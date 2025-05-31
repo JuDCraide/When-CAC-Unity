@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script is used to handle the "How to Play" screen of the game
 public class HowToPlay : MonoBehaviour {
 
     public TMPro.TMP_Text title;

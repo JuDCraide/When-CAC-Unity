@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// This script is used to display the guess video in the UI
 public class ShowGuessVideo : MonoBehaviour {
     public TMPro.TMP_Text title;
     public Image image;

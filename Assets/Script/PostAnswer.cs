@@ -5,6 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// This script is used to make web requests to send the user's guess answer for a game round
+// Based on https://discussions.unity.com/t/how-do-i-get-into-the-data-returned-from-a-unitywebrequest/218510/2
+// And https://stackoverflow.com/questions/36239705/serialize-and-deserialize-json-and-json-array-in-unity
 public class PostAnswer : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
@@ -40,7 +43,7 @@ public class PostAnswer : MonoBehaviour {
 
 
     public void onNextRound() {
-        if(GameManager.game == null || !GameManager.game.result.rounds.ContainsKey(GameManager.game.round)) {             // Error
+        if (GameManager.game == null || !GameManager.game.result.rounds.ContainsKey(GameManager.game.round)) {             // Error
             SoundManager.PlaySound(SoundType.ERROR);
             Debug.Log("Please wait for the current round answer to load first");
             return;

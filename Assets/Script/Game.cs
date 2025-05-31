@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script has the main classes for game logic and to handle API calls request and response
 public class EpResult {
     public int guess;
     public int res;

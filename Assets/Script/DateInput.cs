@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This script handles the date input set by the user
 public class DateInput : MonoBehaviour {
 
     static public string value = "";
@@ -20,7 +21,7 @@ public class DateInput : MonoBehaviour {
 
     public void UpdateDate() {
         //Debug.Log(dateText.text);
-        if(dateText.text.Contains("/")) {
+        if (dateText.text.Contains("/")) {
             return;
         }
         value = dateText.text;

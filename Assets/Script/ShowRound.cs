@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 
+// This script handles the display of the round number in the game
 public class ShowRound : MonoBehaviour {
     public GameObject round;
     public GameObject selectedRound;
