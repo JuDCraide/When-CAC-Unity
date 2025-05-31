@@ -31,6 +31,7 @@ public class ShowGuessVideo : MonoBehaviour {
             byte[] b64_bytes = System.Convert.FromBase64String(src);
             var tex = new Texture2D(1, 1);
             tex.LoadImage(b64_bytes);
+            // Debug.Log($"Texture dimensions: {tex.width}x{tex.height}, Format: {tex.format}");
             //Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
             Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero);
             image.sprite = sprite;
