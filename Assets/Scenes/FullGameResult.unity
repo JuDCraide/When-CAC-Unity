@@ -865,6 +865,10 @@ PrefabInstance:
       propertyPath: clicable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8201795122920457747, guid: ced00a5a74608d649baafdafc0e82e51, type: 3}
+      propertyPath: clickable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8790360735810660766, guid: ced00a5a74608d649baafdafc0e82e51, type: 3}
       propertyPath: number
       value: 3
