@@ -45,7 +45,7 @@ public class ShowResults : MonoBehaviour {
             round = showRounds.round;
         }
         //Debug.Log(GameManager.game.round);
-        if (GameManager.game != null && GameManager.game.result.rounds.ContainsKey(round) && string.IsNullOrEmpty(title.text)) {
+        if (GameManager.game != null && GameManager.game.result.rounds.ContainsKey(round) && string.IsNullOrEmpty(title.text) && string.IsNullOrEmpty(roundPoints.text)) {
             epGuess.text = GameManager.game.result.rounds[round].ep.guess.ToString();
             epRes.text = GameManager.game.result.rounds[round].ep.res.ToString();
             epDiff.text = GameManager.game.result.rounds[round].ep.diff.ToString();
