@@ -17,6 +17,7 @@ public class ShowResults : MonoBehaviour {
     public TMPro.TMP_InputField seed = null;
     public Image image;
     public ShowRounds showRounds = null;
+    public int lastUpdateRound = -1;
 
     void Awake() {
         epGuess.text = "";
@@ -43,9 +44,13 @@ public class ShowResults : MonoBehaviour {
         var round = GameManager.game.round;
         if (showRounds != null) {
             round = showRounds.round;
+            //Debug.Log("showRounds " + showRounds.round);
         }
-        //Debug.Log(GameManager.game.round);
-        if (GameManager.game != null && GameManager.game.result.rounds.ContainsKey(round) && string.IsNullOrEmpty(title.text) && string.IsNullOrEmpty(roundPoints.text)) {
+        //Debug.Log("round " + round);
+        if (
+            GameManager.game != null && GameManager.game.result.rounds.ContainsKey(round)
+            && (string.IsNullOrEmpty(roundPoints.text) || round != lastUpdateRound)
+        ) {
             epGuess.text = GameManager.game.result.rounds[round].ep.guess.ToString();
             epRes.text = GameManager.game.result.rounds[round].ep.res.ToString();
             epDiff.text = GameManager.game.result.rounds[round].ep.diff.ToString();
@@ -74,6 +79,7 @@ public class ShowResults : MonoBehaviour {
             if (seed != null) {
                 seed.text = GameManager.game.seed.ToString();
             }
+            lastUpdateRound = round;
         }
     }
 }

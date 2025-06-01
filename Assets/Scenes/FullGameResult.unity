@@ -3016,7 +3016,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1036762859}
-  - component: {fileID: 1036762860}
   m_Layer: 5
   m_Name: Video
   m_TagString: Untagged
@@ -3049,20 +3048,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 576, y: 576}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1036762860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036762858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df50a5b73264ac54ca007c2dbf420fb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: {fileID: 18338126}
-  image: {fileID: 1693313459}
 --- !u!1 &1107372576
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,6 +3140,7 @@ MonoBehaviour:
   seed: {fileID: 975553550}
   image: {fileID: 1693313459}
   showRounds: {fileID: 214733023}
+  lastUpdateRound: -1
 --- !u!1 &1279923921
 GameObject:
   m_ObjectHideFlags: 0
