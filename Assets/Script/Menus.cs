@@ -20,6 +20,8 @@ public class Menus : MonoBehaviour {
         GameManager.game = null;
         GameManager.seed = null;
         GameManager.error = null;
+        EpInput.currentValue = 1;
+        DateInput.value = "";
     }
 
     public void GoToHowToPlay() {
